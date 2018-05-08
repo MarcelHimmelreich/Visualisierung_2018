@@ -2,7 +2,7 @@ package infovis.scatterplot;
 
 import java.awt.Color;
 
-import com.sun.org.apache.regexp.internal.recompile;
+//import com.sun.org.apache.regexp.internal.recompile;
 
 public class Data{
 	private double [] values;

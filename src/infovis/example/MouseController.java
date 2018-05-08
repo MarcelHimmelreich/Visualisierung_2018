@@ -4,6 +4,7 @@ import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
 
 public class MouseController implements MouseListener, MouseMotionListener {
 	private View view = null;
@@ -37,6 +38,8 @@ public class MouseController implements MouseListener, MouseMotionListener {
 	public void mouseMoved(MouseEvent e) {
 
 	}
+
+
 
 	public View getView() {
 		return view;
