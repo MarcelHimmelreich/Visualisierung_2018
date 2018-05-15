@@ -10,12 +10,14 @@ import infovis.diagram.elements.Vertex;
 import infovis.diagram.layout.Fisheye;
 
 import java.awt.Color;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class MouseController implements MouseListener,MouseMotionListener, MouseWheelListener {
+public class MouseController implements MouseListener,MouseMotionListener {
 	 private Model model;
 	 private View view;
 	 private Element selectedElement = new None();
@@ -184,23 +186,6 @@ public class MouseController implements MouseListener,MouseMotionListener, Mouse
 	}
 	public void mouseMoved(MouseEvent e) {
 	}
-
-	public void mouseWheelMoved(MouseWheelEvent e)
-	{
-		int notches = e.getWheelRotation();
-		View viewer = getView();
-		double scale = getView().getScale();
-		if(e.getWheelRotation() < 0)
-        {
-
-        }
-		viewer.setScale(scale);
-		setView(viewer);
-		view.repaint();
-
-
-	}
-
 	public boolean isDrawingEdges() {
 		return edgeDrawMode;
 	}
