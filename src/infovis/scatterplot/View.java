@@ -14,7 +14,7 @@ public class View extends JPanel {
 	     private Model model = null;
 	     private Integer Matrix_size = 800;
 	     private Integer Offset = 50;
-	     private Double Value_size = 3.0;
+	     private Double Value_size = 1.0;
 	     private Rectangle2D markerRectangle = new Rectangle2D.Double(0,0,0,0);
 	private Rectangle2D table_item;
 
@@ -27,12 +27,12 @@ public class View extends JPanel {
 			Graphics2D g2 = (Graphics2D) g;
 		 	for(int i = 0 ; i < model.getDim();++i)
 			{
-				//Draw Label Width
+				//Draw Label Horizontal
 				g2.drawString(model.getLabels().get(i),
 						i*Matrix_size/model.getDim() + Offset,
 						Offset/2);
 
-				//Draw Label Height
+				//Draw Label Vertical
 				AffineTransform orig = g2.getTransform();
 				AffineTransform rotation = new AffineTransform();
 				rotation.setToRotation(Math.PI / 2);
@@ -68,6 +68,14 @@ public class View extends JPanel {
 						Double pos_y = (h+1) * Matrix_size/model.getDim()
 								- (Matrix_size/model.getDim()*(values.getValue(h)-y_range_min)/(y_range_max-y_range_min))
 								+ (double)Offset - Value_size;
+						if(pos_y>=y_range_max)
+						{
+							pos_y = --pos_y;
+						}
+						if(pos_x>=x_range_max)
+						{
+							pos_x = --pos_x;
+						}
 						g2.draw(new Rectangle2D.Double(pos_x,pos_y,Value_size,Value_size));
 					}
 				}
