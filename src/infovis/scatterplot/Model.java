@@ -16,8 +16,16 @@ public class Model {
 	private ArrayList<Data> list  = new ArrayList<Data>();
 	private ArrayList<Range> ranges = new ArrayList<Range>();
 	private ArrayList<String> labels = new ArrayList<String>();
+	private ArrayList<Data> marked = new ArrayList<Data>();
 	private int dim = 0;
-	
+
+	public ArrayList<Data> getMarked() {
+		return marked;
+	}
+	public void setMarked(ArrayList<Data> marked) {
+		this.marked = marked;
+	}
+
 	public ArrayList<String> getLabels() {
 		return labels;
 	}
@@ -52,7 +60,7 @@ public class Model {
 	
 	public void importValues() {
 		//File file = new File("cameras.ssv");
-		File file = new File("cameras.ssv");
+		File file = new File("cars.ssv");
 	    Debug.p(file.getAbsoluteFile().toString());
 	   
 	    try {

@@ -20,10 +20,8 @@ public class View extends JPanel{
 	private double scale = 1;
 	private double translateX= 0;
 	private double translateY=0;
-	private double overview_x = 400;
-	private double overview_y = 200;
-	private Rectangle2D marker = new Rectangle2D.Double();
-	private Rectangle2D overviewRect = new Rectangle2D.Double();   
+	public Rectangle2D marker = new Rectangle2D.Double();
+	public Rectangle2D overviewRect = new Rectangle2D.Double();
 
 	public Model getModel() {
 		return model;
@@ -53,11 +51,11 @@ public class View extends JPanel{
 		g2D.setColor(Color.black);
 		overviewRect.setRect(0, 0, 220, 200);
 		g2D.draw(overviewRect);
-		
+
 		// Graphics in the Overview
 		g2D.scale((getScale()/4)/getScale(), (getScale()/4)/getScale());
 		paintDiagram(g2D);
-		
+
 		// Marker
 		g2D.scale(1/getScale(), 1/getScale());
 		Color markerColor = new Color(255,0,0,80);
@@ -70,7 +68,7 @@ public class View extends JPanel{
 		if (h > 200*4) {
 			h = 200*4;
 		}
-		marker.setRect(0, 0, w, h);
+		marker.setRect(translateX, translateY, w, h);
 		g2D.fill(marker);
 		g2D.draw(marker);
 	
@@ -147,7 +145,10 @@ public class View extends JPanel{
 
 	}
 	private void paintDiagram(Graphics2D g2D){
-		for (Element element: model.getElements()){
+		for (Element element: model.getElements())
+		{
+			//element.setX(element.getY() +translateX*scale);
+			//element.setY(element.getY() +translateY*scale);
 			element.paint(g2D);
 		}
 	}

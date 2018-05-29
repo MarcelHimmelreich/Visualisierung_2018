@@ -23,6 +23,9 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 private Element selectedElement = new None();
 	 private double mouseOffsetX;
 	 private double mouseOffsetY;
+	 public double offsetx;
+	 public double offsety;
+	 private boolean marker_hit = false;
 	 private boolean edgeDrawMode = false;
 	 private DrawingEdge drawingEdge = null;
 	 private boolean fisheyeMode;
@@ -91,8 +94,22 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		int x = e.getX();
 		int y = e.getY();
 		double scale = view.getScale();
-		
-	   
+
+		if(view.markerContains(x,y))
+		{
+			x = (int)(x*(1/scale));
+			y = (int)(y*(1/scale));
+			marker_hit = true;
+			Debug.println("Mouse click in Marker Rectangle");
+			Debug.println(view.marker.getBounds2D().toString() + ":" +x+" "+y);
+			offsetx =  view.marker.getX() + x;
+			offsety = view.marker.getY() + y;
+		}
+		else
+		{
+			marker_hit = false;
+		}
+
 	   if (edgeDrawMode){
 			drawingEdge = new DrawingEdge((Vertex)getElementContainingPosition(x/scale,y/scale));
 			model.addElement(drawingEdge);
@@ -112,10 +129,11 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		}
 		
 	}
+
 	public void mouseReleased(MouseEvent arg0){
 		int x = arg0.getX();
 		int y = arg0.getY();
-		
+		marker_hit = false;
 		if (drawingEdge != null){
 			Element to = getElementContainingPosition(x, y);
 			model.addEdge(new Edge(drawingEdge.getFrom(),(Vertex)to));
@@ -165,12 +183,36 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	}
 	
 	public void mouseDragged(MouseEvent e) {
-		int x = e.getX();
-		int y = e.getY();
+		double x = e.getX();
+		double y = e.getY();
 		double scale = view.getScale();
 		/*
 		 * Aufgabe 1.2
 		 */
+		if(marker_hit)
+		{
+			double offset_x = offsetx + x;
+			double offset_y = offsety + y;
+			//Calculate Boundaries
+			/*if (offset_x<0)
+			{
+				offset_x = 0;
+			}
+			else if(offset_x + view.marker.getWidth()> view.overviewRect.getX() + view.getWidth())
+			{
+				offset_x = view.overviewRect.getX() + view.getWidth() - view.marker.getWidth();
+			}
+			if(offset_y < 0)
+			{
+				offset_y = 0;
+			}
+			else if(offset_y + view.marker.getHeight()> view.overviewRect.getY() + view.getHeight())
+			{
+				offset_y = view.overviewRect.getY() + view.getHeight() - view.marker.getHeight();
+			}*/
+			view.setTranslateX(offset_x);
+			view.setTranslateY(offset_y);
+		}
 		if (fisheyeMode){
 			/*
 			 * handle fisheye mode interactions
@@ -186,9 +228,11 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	}
 	public void mouseMoved(MouseEvent e) {
 	}
+
 	public boolean isDrawingEdges() {
 		return edgeDrawMode;
 	}
+
 	public void setDrawingEdges(boolean drawingEdges) {
 		this.edgeDrawMode = drawingEdges;
 	}
