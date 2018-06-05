@@ -37,7 +37,7 @@ public class MouseController implements MouseListener, MouseMotionListener {
 		y = e.getY();
 		view.point.x = x;
 		view.point.y = y;
-		model.setMarked(new ArrayList<Data>());
+		//model.setMarked(new ArrayList<Data>());
 		view.repaint();
 		for(int i = 0; i < view.line.size();++i)
 		{

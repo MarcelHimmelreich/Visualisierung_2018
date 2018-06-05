@@ -20,6 +20,10 @@ public class View extends JPanel{
 	private double scale = 1;
 	private double translateX= 0;
 	private double translateY=0;
+	private double overview_offset_x = 0;
+	private double overview_offset_y = 0;
+	private int overview_height = 200;
+	private int overview_width = 200;
 	public Rectangle2D marker = new Rectangle2D.Double();
 	public Rectangle2D overviewRect = new Rectangle2D.Double();
 
@@ -38,118 +42,88 @@ public class View extends JPanel{
 
 	
 	public void paint(Graphics g) {
-		
+		super.paintComponent(g);
 		Graphics2D g2D = (Graphics2D) g;
 		g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g2D.clearRect(0, 0, getWidth(), getHeight());
 		g2D.scale(scale,scale);
-		paintDiagram(g2D);
+		paintDiagram(g2D,false);
 		
 		// Overview Rectangle
-		g2D.clearRect(0, 0, 220, 200);
-		g2D.scale(1/getScale(), 1/getScale());
+		//Check
+		g2D.clearRect((int)(overview_offset_x/getScale()), (int)(overview_offset_y/getScale()), (int)(overview_width/getScale()), (int)(overview_height/getScale()));
 		g2D.setColor(Color.black);
-		overviewRect.setRect(0, 0, 220, 200);
+		overviewRect.setRect(overview_offset_x/getScale(), overview_offset_y/getScale(), overview_width/getScale(), overview_height/getScale());
+		g2D.setStroke(new BasicStroke((float)(1/getScale())));
 		g2D.draw(overviewRect);
 
-		// Graphics in the Overview
-		g2D.scale((getScale()/4)/getScale(), (getScale()/4)/getScale());
-		paintDiagram(g2D);
+
+		//Calculation
+		double model_width = model.getModelWidth()/getScale();
+		double model_height = model.getModelHeight()/getScale();
+
 
 		// Marker
-		g2D.scale(1/getScale(), 1/getScale());
+		double marker_width = overview_width;
+		double marker_height = overview_height;
+
+		if(model_width < getWidth()) {  }
+		else
+			{
+				marker_width = getWidth()/model_width;
+				if(marker_width>1) { marker_width = 1; }
+				marker_width = overview_width * marker_width;
+			}
+
+		if(model_height < getHeight()) {  marker_height = overview_height;}
+		else
+			{
+				marker_height = getHeight()/model_height;
+				if(marker_height>1) { marker_height = 1;}
+				marker_height = overview_height * marker_height;
+
+			}
+		System.out.println("OV Height: "+overview_height);
+		System.out.println("M Height: "+marker_height);
+		System.out.println("M Width: "+marker_width);
+
 		Color markerColor = new Color(255,0,0,80);
 		g2D.setColor(markerColor);
-		int w = getWidth();
-		int h = getHeight();
-		if (w > 220*4) {
-			w = 220*4;
-		}
-		if (h > 200*4) {
-			h = 200*4;
-		}
-		marker.setRect(translateX, translateY, w, h);
+		g2D.setStroke(new BasicStroke((float)(1/getScale())));
+		g2D.scale(1/getScale(),1/getScale());
+		g2D.clearRect((int)(translateX+overview_offset_x), (int)(translateY+overview_offset_y), (int)(marker_width), (int)(marker_height));
+		marker.setRect(translateX+overview_offset_x, translateY+overview_offset_y, marker_width, marker_height);
 		g2D.fill(marker);
 		g2D.draw(marker);
-	
 
-		
 
-//		Double model_width = 0.0;
-//		Double model_height = 0.0;
-//
-//		for (Vertex vertex: model.getVertices() )
-//		{
-//			if(vertex.getX()+ vertex.getWidth() > model_width)
-//			{
-//				model_width = vertex.getX() + vertex.getWidth();
-//			}
-//			if(vertex.getY() + vertex.getHeight()> model_height)
-//			{
-//				model_height = vertex.getY() + vertex.getHeight();
-//			}
-//		}
-//
-//		//Diagram
-//		Graphics2D g2D = (Graphics2D) g;
-//		g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
-//		g2D.clearRect(0, 0, getWidth(), getHeight());
-//
-//		//Minimap Border
-//		Graphics2D overview = (Graphics2D) g;
-//
-//		//Minimap
-//		Graphics2D g2D_map = (Graphics2D) g;
-//		g2D_map.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
-//		g2D_map.clearRect(0, 0, getWidth(), getHeight());
-//
-//		//Minimap Marker
-//		Graphics2D marker_g = (Graphics2D) g;
-//		g2D_map.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
-//		g2D_map.clearRect(0, 0, getWidth(), getHeight());
-//
-//		g2D.scale(scale,scale);
-//		paintDiagram(g2D);
-//
-//		overview.setColor(Color.white);
-//		overviewRect.setRect(0,0, (int)(overview_x/scale),(int)(overview_y/scale));
-//		overview.fillRect(0,0, (int)(overview_x/scale),(int)(overview_y/scale));
-//		overview.setColor(Color.black);
-//		overview.setStroke(new BasicStroke((float)(1/scale)));
-//		overview.draw(overviewRect);
-//
-//		Double marker_width = overview_x;
-//		Double marker_height = overview_y;
-//		if(getWidth() < model_width)
-//		{
-//			marker_width = overview_x*getWidth()/model_width;
-//			System.out.println(getWidth() +" "+ model_width +" "+ marker_width);
-//		}
-//
-//		if(getHeight() < model_height)
-//		{
-//			marker_height = overview_y*getHeight()/model_height;
-//			System.out.println(getHeight() +" "+ model_height +" "+ marker_height);
-//		}
-//
-//		marker_g.setColor(Color.RED);
-//		marker.setRect(0,0,(int)(marker_width/scale),(int)(marker_height/scale));
-//		marker_g.setStroke(new BasicStroke((float)(1/scale)));
-//		marker_g.draw(marker);
-//
-//		//g2D_map.cle
-//		Double map_scale_x = overview_x/model_width;
-//		Double map_scale_y = overview_y/model_height;
-//		g2D_map.scale(map_scale_x/scale,map_scale_y/scale);
-//		paintDiagram(g2D_map);
+		// Graphics in the Overview
+		g2D.scale((overview_width/model_width)/getScale(),(overview_height/model_height)/getScale());
+		paintDiagram(g2D,true);
+
 
 	}
-	private void paintDiagram(Graphics2D g2D){
+	private void paintDiagram(Graphics2D g2D, boolean minimap){
 		for (Element element: model.getElements())
 		{
-			//element.setX(element.getY() +translateX*scale);
-			//element.setY(element.getY() +translateY*scale);
+			double x = element.getX();
+			double y = element.getY();
+
+			if(!minimap)
+			{
+				//Translate Elements
+				element.setX(element.getX() -translateX*(model.getModelWidth()/overview_width*scale));
+				element.setY(element.getY() -translateY*(model.getModelHeight()/overview_width*scale));
+			}
+			else
+			{
+				//Translate Minimap Elements
+				element.setX(element.getX() +overview_offset_x/(overview_width/model.getModelWidth()) );
+				element.setY(element.getY() +overview_offset_y/(overview_width/model.getModelHeight()) );
+			}
 			element.paint(g2D);
+			element.setX(x);
+			element.setY(y);
 		}
 	}
 	
@@ -174,7 +148,13 @@ public class View extends JPanel{
 	public void updateTranslation(double x, double y){
 		setTranslateX(x);
 		setTranslateY(y);
-	}	
+	}
+
+	public double getOverviewOffsetX(){return overview_offset_x;}
+	public double getOverviewOffsetY(){return overview_offset_y;}
+	public void setOverviewOffsetX(double offset){overview_offset_x = offset;}
+	public void setOverviewOffsetY(double offset){overview_offset_y = offset;}
+
 	public void updateMarker(int x, int y){
 		marker.setRect(x, y, 16, 10);
 	}
@@ -184,4 +164,7 @@ public class View extends JPanel{
 	public boolean markerContains(int x, int y){
 		return marker.contains(x, y);
 	}
+
+	public Rectangle2D getOverviewRect(){return overviewRect;}
+	public boolean overviewContains(int x, int y){ return overviewRect.contains(x, y); }
 }

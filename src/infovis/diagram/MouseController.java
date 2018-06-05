@@ -26,6 +26,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 public double offsetx;
 	 public double offsety;
 	 private boolean marker_hit = false;
+	 private boolean overview_hit = false;
 	 private boolean edgeDrawMode = false;
 	 private DrawingEdge drawingEdge = null;
 	 private boolean fisheyeMode;
@@ -93,6 +94,8 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void mousePressed(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
+		mouseOffsetX = x;
+		mouseOffsetY = y;
 		double scale = view.getScale();
 
 		if(view.markerContains(x,y))
@@ -100,14 +103,25 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			x = (int)(x*(1/scale));
 			y = (int)(y*(1/scale));
 			marker_hit = true;
-			Debug.println("Mouse click in Marker Rectangle");
+			Debug.println("Drag Marker");
 			Debug.println(view.marker.getBounds2D().toString() + ":" +x+" "+y);
-			offsetx =  view.marker.getX() + x;
-			offsety = view.marker.getY() + y;
+			//offsetx =  view.marker.getX() + x;
+			//offsety = view.marker.getY() + y;
 		}
 		else
 		{
 			marker_hit = false;
+			Debug.println("Release Marker");
+		}
+		if(!marker_hit && view.overviewContains(x,y))
+		{
+			overview_hit = true;
+			Debug.println("Drag Overview");
+		}
+		else
+		{
+			overview_hit = false;
+			Debug.println("Release Overview");
 		}
 
 	   if (edgeDrawMode){
@@ -133,7 +147,10 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void mouseReleased(MouseEvent arg0){
 		int x = arg0.getX();
 		int y = arg0.getY();
+		Debug.println("Release Overview");
+		Debug.println("Release Marker");
 		marker_hit = false;
+		overview_hit = false;
 		if (drawingEdge != null){
 			Element to = getElementContainingPosition(x, y);
 			model.addEdge(new Edge(drawingEdge.getFrom(),(Vertex)to));
@@ -186,32 +203,14 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		double x = e.getX();
 		double y = e.getY();
 		double scale = view.getScale();
-		/*
-		 * Aufgabe 1.2
-		 */
+
 		if(marker_hit)
 		{
-			double offset_x = offsetx + x;
-			double offset_y = offsety + y;
-			//Calculate Boundaries
-			/*if (offset_x<0)
-			{
-				offset_x = 0;
-			}
-			else if(offset_x + view.marker.getWidth()> view.overviewRect.getX() + view.getWidth())
-			{
-				offset_x = view.overviewRect.getX() + view.getWidth() - view.marker.getWidth();
-			}
-			if(offset_y < 0)
-			{
-				offset_y = 0;
-			}
-			else if(offset_y + view.marker.getHeight()> view.overviewRect.getY() + view.getHeight())
-			{
-				offset_y = view.overviewRect.getY() + view.getHeight() - view.marker.getHeight();
-			}*/
-			view.setTranslateX(offset_x);
-			view.setTranslateY(offset_y);
+			MarkerOffset(x,y);
+		}
+		else if(overview_hit)
+		{
+			OverviewOffset(x,y);
 		}
 		if (fisheyeMode){
 			/*
@@ -250,6 +249,74 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			view.setModel(model);
 			view.repaint();
 		}
+	}
+
+	public void MarkerOffset(double x, double y)
+	{
+		double offset_x =  x;
+		double offset_y =  y;
+		//Calculate Boundaries of marker
+		if (offset_x < view.getOverviewOffsetX())
+		{
+			offset_x = 0;
+		}
+		else if(offset_x + view.marker.getWidth()> view.getOverviewOffsetX() + view.getOverviewRect().getWidth())
+		{
+			offset_x = view.getOverviewRect().getWidth() - view.getMarker().getWidth();
+		}
+		else
+		{
+			offset_x = offset_x - view.getOverviewOffsetX();
+		}
+
+		if(offset_y < view.getOverviewOffsetY())
+		{
+			offset_y = 0;
+		}
+		else if(offset_y + view.marker.getHeight()> view.getOverviewOffsetY() + view.getOverviewRect().getHeight())
+		{
+			offset_y = view.getOverviewRect().getHeight() - view.getMarker().getHeight();
+		}
+		else
+		{
+			offset_y = offset_y - view.getOverviewOffsetY();
+		}
+
+		view.setTranslateX(offset_x);
+		view.setTranslateY(offset_y);
+		System.out.println(offset_x);
+		System.out.println(offset_y);
+		System.out.println("____");
+	}
+
+	public void OverviewOffset(double x,double y)
+	{
+		double offset_x =  x;
+		double offset_y =  y;
+
+		//Calculate Boundaries of overview
+		if(offset_x < 0)
+		{
+			offset_x = 0;
+		}
+		else if(offset_x + view.getOverviewRect().getWidth() > view.getWidth())
+		{
+			offset_x = view.getWidth() - view.getOverviewRect().getWidth();
+		}
+
+		if(offset_y < 0)
+		{
+			offset_y = 0;
+		}
+		else if(offset_y + view.getOverviewRect().getHeight() > view.getHeight())
+		{
+			offset_y = view.getHeight() - view.getOverviewRect().getHeight();
+		}
+		//System.out.println("OV OffsetX: "+offset_x);
+		//System.out.println("OV OffsetY: "+offset_y);
+		view.setOverviewOffsetX(offset_x);
+		view.setOverviewOffsetY(offset_y);
+
 	}
 	
 	/*

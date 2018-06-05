@@ -90,6 +90,33 @@ public class Model {
 		return elements.isEmpty();
 	}
 
+	public double getModelWidth()
+	{
+		double max = 0;
+		for (Vertex vertex: getVertices() )
+		{
+			if(vertex.getX()+ vertex.getWidth() > max)
+			{
+				max = vertex.getX() + vertex.getWidth();
+			}
+		}
+		//System.out.println("MaxWidth: "+max);
+		return max;
+	}
+	public double getModelHeight()
+	{
+		double max = 0;
+		for (Vertex vertex: getVertices() )
+		{
+			if(vertex.getY()+ vertex.getHeight() > max)
+			{
+				max = vertex.getY() + vertex.getHeight();
+			}
+		}
+		//System.out.println("MaxHeight: "+max);
+		return max;
+	}
+
 	public List<Edge> getEdges() {
 		return edges;
 	}
