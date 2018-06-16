@@ -258,6 +258,57 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	{
 		double offset_x =  x;
 		double offset_y =  y;
+		offset_y = offset_y - mouseOffsetY;
+		offset_x = offset_x - mouseOffsetX;
+
+		if(offset_x + view.getTranslateX() < 0)
+		{
+			offset_x = 0;
+			System.out.println("lower bound:  "+offset_y);
+		}
+		else
+		{
+			offset_x = offset_x + view.getTranslateX();
+		}
+		if((view.getMarker().getWidth()+offset_x)>= view.overview_width)
+		{
+			offset_x = view.overview_width - view.getMarker().getWidth();
+
+		}
+
+		if(offset_y + view.getTranslateY() < 0)
+		{
+			offset_y = 0;
+			System.out.println("lower bound:  "+offset_y);
+		}
+		else
+		{
+			offset_y = offset_y + view.getTranslateY();
+		}
+		if((view.getMarker().getHeight()+offset_y)>= view.overview_height)
+		{
+			offset_y = view.overview_height - view.getMarker().getHeight();
+
+		}
+
+		view.setTranslateX(offset_x);
+		view.setTranslateY(offset_y);
+		System.out.println(offset_x);
+		System.out.println(offset_y);
+		System.out.println("____");
+
+		/*
+		offset_y = offset_y + view.getTranslateY();
+		if(offset_y + view.getTranslateY() < 0)
+		{
+			offset_y = 0;
+			System.out.println("lower bound:  "+offset_y);
+		}
+		else if(view.getMarker().getHeight() +offset_y>= view.getOverviewRect().getHeight())
+		{
+
+			offset_y = view.getOverviewRect().getHeight() - view.getMarker().getHeight();
+
 		//Calculate Boundaries of marker
 		if (offset_x < view.getOverviewOffsetX())
 		{
@@ -271,25 +322,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		{
 			offset_x = offset_x - view.getOverviewOffsetX();
 		}
-
-		if(offset_y < view.getOverviewOffsetY())
-		{
-			offset_y = 0;
-		}
-		else if(offset_y + view.marker.getHeight()> view.getOverviewOffsetY() + view.getOverviewRect().getHeight())
-		{
-			offset_y = view.getOverviewRect().getHeight() - view.getMarker().getHeight();
-		}
-		else
-		{
-			offset_y = offset_y - view.getOverviewOffsetY();
-		}
-
-		view.setTranslateX(offset_x);
-		view.setTranslateY(offset_y);
-		System.out.println(offset_x);
-		System.out.println(offset_y);
-		System.out.println("____");
+		 */
 	}
 
 	public void OverviewOffset(double x,double y)
