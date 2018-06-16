@@ -67,8 +67,9 @@ public class View extends JPanel{
 
 
 		//Calculation
-		double model_width = model.getModelWidth()/getScale();
-		double model_height = model.getModelHeight()/getScale();
+		double model_width = model.getModelWidth()* scale;
+		double model_height = model.getModelHeight() * scale;
+		System.out.println("Model Height: "+model_height);
 
 
 		// Marker
@@ -91,14 +92,11 @@ public class View extends JPanel{
 				marker_height = overview_height * marker_height;
 
 			}
-		//System.out.println("OV Height: "+overview_height);
-		//System.out.println("M Height: "+marker_height);
-		//System.out.println("M Width: "+marker_width);
 
 		Color markerColor = new Color(255,0,0,80);
 		g2D.setColor(markerColor);
 		g2D.setStroke(new BasicStroke((float)(1/getScale())));
-		g2D.scale(1/getScale(),1/getScale());
+		g2D.scale(1/scale,1/scale);
 		g2D.clearRect((int)(translateX+overview_offset_x), (int)(translateY+overview_offset_y), (int)(marker_width/scale), (int)(marker_height/scale));
 		marker.setRect(translateX+overview_offset_x, translateY+overview_offset_y, marker_width/scale, marker_height/scale);
 		g2D.fill(marker);
@@ -106,7 +104,7 @@ public class View extends JPanel{
 
 
 		// Graphics in the Overview
-		g2D.scale((overview_width/model_width)/getScale(),(overview_height/model_height)/getScale());
+		g2D.scale((overview_width/model_width*getScale())/getScale(),(overview_height/model_height*getScale())/getScale());
 		paintDiagram(g2D,true);
 
 
@@ -121,8 +119,8 @@ public class View extends JPanel{
 			if(!minimap)
 			{
 				//Translate Elements
-				element.setX(element.getX() -translateX*(model.getModelWidth()*scale/overview_width));
-				element.setY(element.getY() -translateY*(model.getModelHeight()*scale/overview_width));
+				element.setX(element.getX() -translateX*(model.getModelWidth()/overview_width*scale));
+				element.setY(element.getY() -translateY*(model.getModelHeight()/overview_width*scale));
 			}
 			else
 			{
