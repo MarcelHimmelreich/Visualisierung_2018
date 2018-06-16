@@ -20,11 +20,14 @@ import java.util.List;
 public class MouseController implements MouseListener,MouseMotionListener {
 	 private Model model;
 	 private View view;
+	 public Fisheye fish;
 	 private Element selectedElement = new None();
 	 private double mouseOffsetX;
 	 private double mouseOffsetY;
 	 public double offsetx;
 	 public double offsety;
+	 public double focus_point_x;
+	 public double focus_point_y;
 	 private boolean marker_hit = false;
 	 private boolean overview_hit = false;
 	 private boolean edgeDrawMode = false;
@@ -113,7 +116,9 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			marker_hit = false;
 			Debug.println("Release Marker");
 		}
-		if(!marker_hit && view.overviewContains(x,y))
+		System.out.println("View: "+ view.overviewRect);
+		System.out.println("Point: "+ x/scale +"  "+y/scale);
+		if(!marker_hit &&view.overviewContains((int)(x/scale),(int)(y/scale)))
 		{
 			overview_hit = true;
 			Debug.println("Drag Overview");
@@ -213,9 +218,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			OverviewOffset(x,y);
 		}
 		if (fisheyeMode){
-			/*
-			 * handle fisheye mode interactions
-			 */
+			fish.transform(model,view,x,y);
 			view.repaint();
 		} else if (edgeDrawMode){
 			drawingEdge.setX(e.getX());

@@ -3,6 +3,7 @@ package infovis.diagram;
 import infovis.gui.GUI;
 
 import javax.swing.SwingUtilities;
+import infovis.diagram.layout.Fisheye;
 
 /**
  * 
@@ -14,6 +15,7 @@ public class Diagram {
 	private MouseController controller = null;
     private Model model = null;
     private View view = null;
+    private Fisheye fish = null;
        
 	/**
 	 * @return View for GUI integration

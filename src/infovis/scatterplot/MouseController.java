@@ -39,8 +39,8 @@ public class MouseController implements MouseListener, MouseMotionListener {
 		double y = arg0.getY();
 		model.setMarked(new ArrayList<Data>());
 		//clear Marker
-		//Rectangle2D rect = new Rectangle2D.Double(0,0,0,0);
-		//view.setMarkerRectangle(rect);
+		Rectangle2D rect = new Rectangle2D.Double(0,0,0,0);
+		view.setMarkerRectangle(rect);
 		view.repaint();
 
 	}

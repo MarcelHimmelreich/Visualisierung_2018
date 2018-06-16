@@ -26,6 +26,7 @@ public class View extends JPanel{
 	private int overview_width = 200;
 	public Rectangle2D marker = new Rectangle2D.Double();
 	public Rectangle2D overviewRect = new Rectangle2D.Double();
+	public Rectangle2D overviewHat = new Rectangle2D.Double();
 
 	public Model getModel() {
 		return model;
@@ -57,6 +58,13 @@ public class View extends JPanel{
 		g2D.setStroke(new BasicStroke((float)(1/getScale())));
 		g2D.draw(overviewRect);
 
+		g2D.clearRect((int)(overview_offset_x/getScale()), (int)(overview_offset_y/getScale()), (int)(overview_width/getScale()), (int)(overview_height/getScale()));
+		g2D.setColor(Color.black);
+		overviewRect.setRect(overview_offset_x/getScale(), (overview_height+overview_offset_y)/getScale(), overview_width/getScale(), 10/scale);
+		g2D.setStroke(new BasicStroke((float)(1/getScale())));
+		g2D.draw(overviewRect);
+		g2D.fill(overviewRect);
+
 
 		//Calculation
 		double model_width = model.getModelWidth()/getScale();
@@ -83,16 +91,16 @@ public class View extends JPanel{
 				marker_height = overview_height * marker_height;
 
 			}
-		System.out.println("OV Height: "+overview_height);
-		System.out.println("M Height: "+marker_height);
-		System.out.println("M Width: "+marker_width);
+		//System.out.println("OV Height: "+overview_height);
+		//System.out.println("M Height: "+marker_height);
+		//System.out.println("M Width: "+marker_width);
 
 		Color markerColor = new Color(255,0,0,80);
 		g2D.setColor(markerColor);
 		g2D.setStroke(new BasicStroke((float)(1/getScale())));
 		g2D.scale(1/getScale(),1/getScale());
 		g2D.clearRect((int)(translateX+overview_offset_x), (int)(translateY+overview_offset_y), (int)(marker_width), (int)(marker_height));
-		marker.setRect(translateX+overview_offset_x, translateY+overview_offset_y, marker_width, marker_height);
+		marker.setRect(translateX+overview_offset_x, translateY+overview_offset_y, marker_width/scale, marker_height/scale);
 		g2D.fill(marker);
 		g2D.draw(marker);
 
@@ -103,6 +111,7 @@ public class View extends JPanel{
 
 
 	}
+	
 	private void paintDiagram(Graphics2D g2D, boolean minimap){
 		for (Element element: model.getElements())
 		{

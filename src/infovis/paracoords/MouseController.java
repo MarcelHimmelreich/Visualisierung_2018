@@ -35,10 +35,6 @@ public class MouseController implements MouseListener, MouseMotionListener {
 	{
 		x = e.getX();
 		y = e.getY();
-		view.point.x = x;
-		view.point.y = y;
-		//model.setMarked(new ArrayList<Data>());
-		view.repaint();
 		for(int i = 0; i < view.line.size();++i)
 		{
 			if(view.line.get(i).intersects(x,y,5,5))
@@ -46,6 +42,24 @@ public class MouseController implements MouseListener, MouseMotionListener {
 				label_index = i;
 				label_hit = true;
 				Debug.println("line hit");
+			}
+		}
+		for(int i = 0; i <view.line_data.size();++i)
+		{
+			for(Line2D.Double lines : view.line_data.get(i))
+			{
+				if(lines.intersects(x,y,5,5))
+				{
+					System.out.print("Line index: "+i);
+					if(!view.line_data_index.contains((Integer)i))
+					{
+						view.line_data_index.add((Integer) i);
+					}
+					else
+					{
+						view.line_data_index.remove((Integer)i);
+					}
+				}
 			}
 		}
 		view.repaint();
