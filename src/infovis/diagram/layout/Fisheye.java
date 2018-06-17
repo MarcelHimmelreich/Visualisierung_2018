@@ -25,6 +25,7 @@ public class Fisheye implements Layout{
 	public void setMouseCoords(int x, int y, View view) {
 	}
 
+
 	public Model transform(Model model, View view, double focus_point_x, double focus_point_y)
 	{
 		ArrayList<Vertex> new_vertex= new ArrayList<Vertex>();
@@ -42,15 +43,15 @@ public class Fisheye implements Layout{
 
 			vertex.setX(fish_point.getX());
 			vertex.setY(fish_point.getY());
-			vertex.setHeight(scale_y);
-			vertex.setWidth(scale_x);
+			//vertex.setHeight(scale_y);
+			//vertex.setWidth(scale_x);
 			new_vertex.add(vertex);
 		}
 		model.removeVertices(model.getVertices());
 		model.addVertices(new_vertex);
 
 
-		return null;
+		return model;
 	}
 
 	public Point2D F1(View view, double p_norm_x, double p_norm_y, double focus_point_x, double focus_point_y)

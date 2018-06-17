@@ -29,6 +29,7 @@ public class Diagram {
 	   model = new Model();
 	   model.generateTestValues();
 	   view = new View();
+	   fish = new Fisheye();
 	   controller = new MouseController();
 	   MenuController menuController = MenuController.getMenuController();
 	
@@ -37,6 +38,7 @@ public class Diagram {
 	   view.setModel(model);
 	   controller.setModel(model);
 	   controller.setView(view);
+	   controller.setFish(fish);
 	   menuController.setView(view);
 	   menuController.setModel(model);
 	   menuController.setMouseControllerAddedToView(controller);

@@ -22,6 +22,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 private View view;
 	 public Fisheye fish;
 	 private Element selectedElement = new None();
+	 private List<Vertex>  vertices  = new ArrayList<Vertex>();
 	 private double mouseOffsetX;
 	 private double mouseOffsetY;
 	 public double offsetx;
@@ -52,6 +53,8 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void setView(View diagramView) {
 		this.view = diagramView;
 	}
+	public void setFish(Fisheye fish){ this.fish = fish;}
+	public Fisheye getFish(){return fish;}
 	/*
      * Implements MouseListener
      */
@@ -95,6 +98,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void mouseExited(MouseEvent arg0) {
 	}
 	public void mousePressed(MouseEvent e) {
+		vertices = model.getVertices();
 		int x = e.getX();
 		int y = e.getY();
 		mouseOffsetX = x;
@@ -133,9 +137,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			drawingEdge = new DrawingEdge((Vertex)getElementContainingPosition(x/scale,y/scale));
 			model.addElement(drawingEdge);
 		} else if (fisheyeMode){
-			/*
-			 * do handle interactions in fisheye mode
-			 */
+			model = fish.transform(model,view,(double)x,(double)y);
 			view.repaint();
 		} else {
 			
@@ -156,6 +158,8 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		Debug.println("Release Marker");
 		marker_hit = false;
 		overview_hit = false;
+		//model.removeVertices(model.getVertices());
+		//model.addVertices(vertices);
 		if (drawingEdge != null){
 			Element to = getElementContainingPosition(x, y);
 			model.addEdge(new Edge(drawingEdge.getFrom(),(Vertex)to));
@@ -218,7 +222,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			OverviewOffset(x,y);
 		}
 		if (fisheyeMode){
-			fish.transform(model,view,x,y);
+			model = fish.transform(model,view,x,y);
 			view.repaint();
 		} else if (edgeDrawMode){
 			drawingEdge.setX(e.getX());
