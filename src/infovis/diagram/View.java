@@ -76,6 +76,7 @@ public class View extends JPanel{
 		double marker_width = overview_width;
 		double marker_height = overview_height;
 
+		//Calculate Model Size
 		if(model_width < getWidth()) {  }
 		else
 			{
@@ -93,6 +94,7 @@ public class View extends JPanel{
 
 			}
 
+		//Draw Marker
 		Color markerColor = new Color(255,0,0,80);
 		g2D.setColor(markerColor);
 		g2D.setStroke(new BasicStroke((float)(1/getScale())));
@@ -118,7 +120,7 @@ public class View extends JPanel{
 
 			if(!minimap)
 			{
-				//Translate Elements
+				//Translate Elements with scale
 				element.setX(element.getX() -translateX*(model.getModelWidth()/overview_width*scale));
 				element.setY(element.getY() -translateY*(model.getModelHeight()/overview_width*scale));
 			}

@@ -35,6 +35,7 @@ public class MouseController implements MouseListener, MouseMotionListener {
 	{
 		x = e.getX();
 		y = e.getY();
+		//Check Label Line Intersection
 		for(int i = 0; i < view.line.size();++i)
 		{
 			if(view.line.get(i).intersects(x,y,5,5))
@@ -44,6 +45,8 @@ public class MouseController implements MouseListener, MouseMotionListener {
 				Debug.println("line hit");
 			}
 		}
+
+		//Check Data Line Intersection
 		for(int i = 0; i <view.line_data.size();++i)
 		{
 			for(Line2D.Double lines : view.line_data.get(i))
@@ -74,6 +77,7 @@ public class MouseController implements MouseListener, MouseMotionListener {
 
 	public void mouseDragged(MouseEvent e)
 	{
+		//Offset Label Movement
 		if(label_hit)
 		{
 			int offset = e.getX() - x;

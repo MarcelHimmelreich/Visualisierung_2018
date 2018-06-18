@@ -112,8 +112,6 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			marker_hit = true;
 			Debug.println("Drag Marker");
 			Debug.println(view.marker.getBounds2D().toString() + ":" +x+" "+y);
-			//offsetx =  view.marker.getX() + x;
-			//offsety = view.marker.getY() + y;
 		}
 		else
 		{
@@ -265,17 +263,21 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		offset_y = offset_y - mouseOffsetY;
 		offset_x = offset_x - mouseOffsetX;
 
+		//Calculate local offset
 		if(offset_x + view.getTranslateX() < 0)
 		{
+			//Lower Bound
 			offset_x = 0;
 			System.out.println("lower bound:  "+offset_y);
 		}
 		else
 		{
+			//New Offset between bounds
 			offset_x = offset_x + view.getTranslateX();
 		}
 		if((view.getMarker().getWidth()+offset_x)>= view.overview_width)
 		{
+			//Upper Bound
 			offset_x = view.overview_width - view.getMarker().getWidth();
 
 		}
@@ -296,37 +298,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		}
 
 		view.setTranslateX(offset_x);
-		view.setTranslateY(offset_y);
-		System.out.println(offset_x);
-		System.out.println(offset_y);
-		System.out.println("____");
-
-		/*
-		offset_y = offset_y + view.getTranslateY();
-		if(offset_y + view.getTranslateY() < 0)
-		{
-			offset_y = 0;
-			System.out.println("lower bound:  "+offset_y);
-		}
-		else if(view.getMarker().getHeight() +offset_y>= view.getOverviewRect().getHeight())
-		{
-
-			offset_y = view.getOverviewRect().getHeight() - view.getMarker().getHeight();
-
-		//Calculate Boundaries of marker
-		if (offset_x < view.getOverviewOffsetX())
-		{
-			offset_x = 0;
-		}
-		else if(offset_x + view.marker.getWidth()> view.getOverviewOffsetX() + view.getOverviewRect().getWidth())
-		{
-			offset_x = view.getOverviewRect().getWidth() - view.getMarker().getWidth();
-		}
-		else
-		{
-			offset_x = offset_x - view.getOverviewOffsetX();
-		}
-		 */
+		view.setTranslateY(offset_y);;
 	}
 
 	public void OverviewOffset(double x,double y)
@@ -352,8 +324,6 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		{
 			offset_y = view.getHeight() - view.getOverviewRect().getHeight();
 		}
-		//System.out.println("OV OffsetX: "+offset_x);
-		//System.out.println("OV OffsetY: "+offset_y);
 		view.setOverviewOffsetX(offset_x);
 		view.setOverviewOffsetY(offset_y);
 

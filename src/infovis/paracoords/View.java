@@ -57,6 +57,7 @@ public class View extends JPanel {
 			g.setColor(Color.BLACK);
 			g.drawString(Double.toString(model.getRanges().get(i).getMax()),
 					diagram_length/getModel().getDim()*i + diagram_offset+ line_offset.get(i), diagram_offset);
+
 			//Draw Range Min
 			g.setColor(Color.BLACK);
 			g.drawString(Double.toString(model.getRanges().get(i).getMin()),
@@ -97,6 +98,8 @@ public class View extends JPanel {
 					//Exception for divide by zero
 					second_point_y = diagram_height+diagram_offset;
 				}
+
+				//Add new Line from two points
 				Line2D.Double line = new Line2D.Double(first_point_x,first_point_y,second_point_x,second_point_y);
 				temp_line.add(line);
 
@@ -104,6 +107,7 @@ public class View extends JPanel {
 			line_data.add(temp_line);
 		}
 
+		//Draw Black Lines
 		for(int i =  0; i<line_data.size();++i)
 		{
 			for(Line2D.Double lines : line_data.get(i) )
@@ -113,6 +117,8 @@ public class View extends JPanel {
 			}
 
 		}
+
+		//Draw marked red lines
 		for(int i =  0; i<line_data.size();++i)
 		{
 			for(Line2D.Double lines : line_data.get(i) )

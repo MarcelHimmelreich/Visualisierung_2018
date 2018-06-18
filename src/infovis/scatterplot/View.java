@@ -166,22 +166,7 @@ public class View extends JPanel {
 
 			g2.draw(markerRectangle);
 
-		 	/*
-	        for (String l : model.getLabels()) {
-				Debug.print(l);
-				Debug.print(",  ");
-				Debug.println("");
-			}
-			for (Range range : model.getRanges()) {
-				Debug.print(range.toString());
-				Debug.print(",  ");
-				Debug.println("");
-			}
-			for (Data d : model.getList()) {
-				Debug.print(d.toString());
-				Debug.println("");
-			}
-	        */
+
 			
 		}
 		public void setModel(Model model) {
