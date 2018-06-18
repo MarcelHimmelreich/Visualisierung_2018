@@ -16,41 +16,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Fisheye.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Fisheye.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="424">
+              <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2552#2553#0" expanded="true" />
+                <element signature="e#2585#2586#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/infovis/diagram/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParaCoords.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/infovis/paracoords/ParaCoords.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/infovis/paracoords/MouseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+            <state relative-caret-position="720">
+              <caret line="128" column="44" lean-forward="true" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -78,18 +62,17 @@
         <option value="$PROJECT_DIR$/src/infovis/diagram/layout/Layout.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/Model.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/Diagram.java" />
-        <option value="$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/MouseController.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/View.java" />
         <option value="$PROJECT_DIR$/src/infovis/paracoords/View.java" />
         <option value="$PROJECT_DIR$/src/infovis/paracoords/MouseController.java" />
         <option value="$PROJECT_DIR$/src/infovis/scatterplot/View.java" />
+        <option value="$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="100" />
-    <option name="y" value="-10" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -98,8 +81,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,6 +104,13 @@
               <item name="Visualisierung_2018" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="infovis" type="462c0819:PsiDirectoryNode" />
+              <item name="diagram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="InfoVis_Assignment_SS15" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Visualisierung_2018" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="infovis" type="462c0819:PsiDirectoryNode" />
               <item name="paracoords" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -137,6 +125,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,7 +249,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -269,25 +259,25 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3060574" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3060574" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.111979164" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22442588" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32731137" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32731137" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -584,9 +574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -609,9 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="14" column="62" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="62" />
-          <folding>
-            <element signature="e#428#436#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -629,17 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="128" column="44" lean-forward="true" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
-          <folding>
-            <element signature="e#5217#5218#0" expanded="true" />
-            <element signature="e#5252#5253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Layout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -654,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/paracoords/MouseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/infovis/paracoords/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -668,20 +634,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java">
+    <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1012">
+          <caret line="168" selection-start-line="168" selection-end-line="168" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
+    <entry file="file://$PROJECT_DIR$/src/infovis/paracoords/MouseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
+        <state relative-caret-position="417">
+          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="128" column="44" lean-forward="true" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2552#2553#0" expanded="true" />
+            <element signature="e#2585#2586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

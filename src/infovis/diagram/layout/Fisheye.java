@@ -38,13 +38,13 @@ public class Fisheye implements Layout{
 
 			Point2D fish_point_Q = F1(view,p_norm_x+vertex.getWidth()/2,p_norm_y+vertex.getWidth()/2,focus_point_x,focus_point_y);
 
-			int scale_x = (int) (2* Math.abs(fish_point_Q.getX() - fish_point.getX()) );
-			int scale_y = (int) (2* Math.abs(fish_point_Q.getY() - fish_point.getY()) );
-
+			double scale_x = (Math.abs(fish_point_Q.getX() - fish_point.getX()) );
+			double scale_y = (Math.abs(fish_point_Q.getY() - fish_point.getY()) );
+			double scale_fish = 2 * Math.min(scale_x,scale_y);
 			vertex.setX(fish_point.getX());
 			vertex.setY(fish_point.getY());
-			//vertex.setHeight(scale_y);
-			//vertex.setWidth(scale_x);
+			//vertex.setHeight(scale_fish);
+			//vertex.setWidth(scale_fish);
 			new_vertex.add(vertex);
 		}
 		model.removeVertices(model.getVertices());
