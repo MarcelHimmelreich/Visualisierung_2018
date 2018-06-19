@@ -23,6 +23,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 public Fisheye fish;
 	 private Element selectedElement = new None();
 	 private List<Vertex>  vertices  = new ArrayList<Vertex>();
+	 private List<Element> elements = new ArrayList<Element>();
 	 private double mouseOffsetX;
 	 private double mouseOffsetY;
 	 public double offsetx;
@@ -206,6 +207,12 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			model.removeElement(groupRectangle);
 			groupRectangle = null;
 		}
+		model.removeVertices(model.getVertices());
+		model.addVertices(vertices);
+		System.out.println("VERTICES: "+vertices);
+		System.out.println(model.getVertices());
+		System.out.println(model.getElements());
+		System.out.println(vertices);
 		view.repaint();
 	}
 	
@@ -307,6 +314,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void CreateVertices()
 	{
 		vertices = model.getVertices();
+		System.out.println("VERTICES: "+vertices);
 	}
 
 	public void OverviewOffset(double x,double y)

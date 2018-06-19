@@ -21,8 +21,9 @@ public class Model {
 		elements.add(v);
 	}
 	public void addVertices(List<Vertex> list){
-		vertices.addAll(list);
 		elements.addAll(list);
+		vertices.addAll(list);
+
 	}
 
 	public void addEdge(Edge edge){
@@ -60,8 +61,9 @@ public class Model {
 		elements.remove(vertex);
 	}
 	public void removeVertices(List<Vertex> list){
-		vertices.removeAll(list);
 		elements.removeAll(list);
+		vertices.removeAll(list);
+
 	}
 	public void removeEdge(Edge edge){
 		edges.remove(edge);

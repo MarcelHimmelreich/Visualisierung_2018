@@ -16,19 +16,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Fisheye.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-115">
+            <state relative-caret-position="242">
               <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -38,15 +29,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
+      <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/infovis/diagram/MouseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2737">
-              <caret line="169" column="13" selection-start-line="169" selection-start-column="13" selection-end-line="169" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="210" column="36" lean-forward="true" selection-start-line="210" selection-start-column="36" selection-end-line="210" selection-end-column="36" />
               <folding>
-                <element signature="e#5305#5306#0" expanded="true" />
-                <element signature="e#5325#5326#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#803#811#0" expanded="true" />
+                <element signature="e#863#872#0" expanded="true" />
+                <element signature="method#setFisheyeMode#0;class#MouseController#0" />
+                <element signature="method#MarkerOffset#0;class#MouseController#0" />
+                <element signature="method#OverviewOffset#0;class#MouseController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/infovis/diagram/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/infovis/diagram/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -58,6 +71,7 @@
       <find>scale</find>
       <find>setscale</find>
       <find>label</find>
+      <find>offset</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -74,12 +88,12 @@
         <option value="$PROJECT_DIR$/src/infovis/paracoords/View.java" />
         <option value="$PROJECT_DIR$/src/infovis/paracoords/MouseController.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/Diagram.java" />
-        <option value="$PROJECT_DIR$/src/infovis/diagram/Model.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/layout/Layout.java" />
-        <option value="$PROJECT_DIR$/src/infovis/diagram/MouseController.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java" />
         <option value="$PROJECT_DIR$/src/infovis/scatterplot/View.java" />
         <option value="$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java" />
+        <option value="$PROJECT_DIR$/src/infovis/diagram/Model.java" />
+        <option value="$PROJECT_DIR$/src/infovis/diagram/MouseController.java" />
       </list>
     </option>
   </component>
@@ -127,20 +141,6 @@
               <item name="diagram" type="462c0819:PsiDirectoryNode" />
               <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="InfoVis_Assignment_SS15" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Visualisierung_2018" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="infovis" type="462c0819:PsiDirectoryNode" />
-              <item name="paracoords" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InfoVis_Assignment_SS15" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Visualisierung_2018" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="infovis" type="462c0819:PsiDirectoryNode" />
-              <item name="scatterplot" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -167,7 +167,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Scatterplot">
+  <component name="RunManager" selected="Application.Diagram">
     <configuration name="Diagram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="infovis.diagram.Diagram" />
       <module name="InfoVis_Assignment_SS15" />
@@ -249,8 +249,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Scatterplot" />
         <item itemvalue="Application.Diagram" />
+        <item itemvalue="Application.Scatterplot" />
         <item itemvalue="Application.ParaCoords" />
       </list>
     </recent_temporary>
@@ -280,7 +280,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.305794" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.305794" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -305,14 +305,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/infovis/diagram/MouseController.java</url>
-          <line>155</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="5" />
     </breakpoint-manager>
   </component>
@@ -611,24 +603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Layout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1177">
-          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -646,36 +624,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/MouseController.java">
+    <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="149" column="63" selection-start-line="149" selection-start-column="63" selection-end-line="149" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#mouseReleased#0;class#MouseController#0" />
-            <element signature="method#setFisheyeMode#0;class#MouseController#0" />
-            <element signature="method#MarkerOffset#0;class#MouseController#0" />
-            <element signature="e#8490#8491#0" expanded="true" />
-            <element signature="e#8527#8528#0" expanded="true" />
-            <element signature="method#OverviewOffset#0;class#MouseController#0" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2737">
-          <caret line="169" column="13" selection-start-line="169" selection-start-column="13" selection-end-line="169" selection-end-column="13" />
-          <folding>
-            <element signature="e#5305#5306#0" expanded="true" />
-            <element signature="e#5325#5326#0" expanded="true" />
-          </folding>
+        <state>
+          <caret line="38" column="57" lean-forward="true" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
+        <state relative-caret-position="242">
           <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -684,10 +649,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java">
+    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        <state relative-caret-position="343">
+          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infovis/diagram/MouseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="210" column="36" lean-forward="true" selection-start-line="210" selection-start-column="36" selection-end-line="210" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#803#811#0" expanded="true" />
+            <element signature="e#863#872#0" expanded="true" />
+            <element signature="method#setFisheyeMode#0;class#MouseController#0" />
+            <element signature="method#MarkerOffset#0;class#MouseController#0" />
+            <element signature="method#OverviewOffset#0;class#MouseController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
