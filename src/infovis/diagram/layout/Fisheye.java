@@ -41,8 +41,8 @@ public class Fisheye implements Layout{
 			double scale_x = (Math.abs(fish_point_Q.getX() - fish_point.getX()) );
 			double scale_y = (Math.abs(fish_point_Q.getY() - fish_point.getY()) );
 			double scale_fish = 2 * Math.min(scale_x,scale_y);
-			vertex.setX(fish_point.getX());
-			vertex.setY(fish_point.getY());
+			vertex.setX(Math.abs(fish_point.getX()));
+			vertex.setY(Math.abs(fish_point.getY()));
 			//vertex.setHeight(scale_fish);
 			//vertex.setWidth(scale_fish);
 			new_vertex.add(vertex);
@@ -58,7 +58,8 @@ public class Fisheye implements Layout{
 	{
 		//Horizontal Distance between Screen  and focus in normal coordinates
 		double d_max_x = 0;
-		double p_bound_x = view.getBounds().x;
+		double p_bound_x = view.getWidth();
+
 		if(p_norm_x > focus_point_x)
 		{
 			d_max_x = p_bound_x - focus_point_x;
@@ -70,7 +71,7 @@ public class Fisheye implements Layout{
 
 		//Vertical Distance between Screen  and focus in normal coordinates
 		double d_max_y = 0;
-		double p_bound_y = view.getBounds().y;
+		double p_bound_y = view.getHeight();
 		if(p_norm_y > focus_point_y)
 		{
 			d_max_y = p_bound_y - focus_point_y;
@@ -83,11 +84,12 @@ public class Fisheye implements Layout{
 		//Distance between transformed point and focus
 		double d_norm_x = p_norm_x - focus_point_x;
 		double d_norm_y = p_norm_y - focus_point_y;
-
+		System.out.println("P BOUND: " + p_bound_x +"_"+ p_bound_y);
+		System.out.println("MAX D : "+d_max_x);
 		//Fisheye Point
 		double fish_point_x = G_function(d_norm_x/d_max_x) * d_max_x + focus_point_x;
 		double fish_point_y = G_function(d_norm_y/d_max_y) * d_max_y + focus_point_y;
-
+		System.out.println("fishpoint : "+fish_point_x + " _" + fish_point_y);
 		return new Point2D.Double(fish_point_x,fish_point_y);
 	}
 

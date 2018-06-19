@@ -36,12 +36,15 @@ public class Diagram {
 	   view.addMouseListener(controller);
 	   view.addMouseMotionListener(controller);
 	   view.setModel(model);
+
 	   controller.setModel(model);
 	   controller.setView(view);
 	   controller.setFish(fish);
+	   controller.CreateVertices();
 	   menuController.setView(view);
 	   menuController.setModel(model);
 	   menuController.setMouseControllerAddedToView(controller);
+
 	}
 	
 	public static void main(String[] args) {

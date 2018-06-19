@@ -16,7 +16,7 @@ public class View extends JPanel {
 	     private Integer Offset = 50;
 	     private Double Value_size = 1.0;
 	     private Rectangle2D markerRectangle = new Rectangle2D.Double(0,0,0,0);
-	private Rectangle2D table_item;
+		 private Rectangle2D table_item;
 
 	public Rectangle2D getMarkerRectangle() { return markerRectangle;}
 	public void setMarkerRectangle(Rectangle2D rect){ markerRectangle = rect;}
@@ -168,6 +168,11 @@ public class View extends JPanel {
 
 
 			
+		}
+
+		public void ClearMarker()
+		{
+
 		}
 		public void setModel(Model model) {
 			this.model = model;

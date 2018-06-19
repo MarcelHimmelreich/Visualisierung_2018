@@ -98,7 +98,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void mouseExited(MouseEvent arg0) {
 	}
 	public void mousePressed(MouseEvent e) {
-		vertices = model.getVertices();
+
 		int x = e.getX();
 		int y = e.getY();
 		mouseOffsetX = x;
@@ -135,16 +135,19 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			drawingEdge = new DrawingEdge((Vertex)getElementContainingPosition(x/scale,y/scale));
 			model.addElement(drawingEdge);
 		} else if (fisheyeMode){
+			//model.removeVertices(model.getVertices());
+			//model.addVertices(vertices);
 			model = fish.transform(model,view,(double)x,(double)y);
 			view.repaint();
-		} else {
+		}
+		else {
 			
 			selectedElement = getElementContainingPosition(x/scale,y/scale);
 			/*
 			 * calculate offset
 			 */
 			mouseOffsetX = x - selectedElement.getX() * scale ;
-			mouseOffsetY = y - selectedElement.getY() * scale ;	
+			mouseOffsetY = y - selectedElement.getY() * scale ;
 		}
 		
 	}
@@ -299,6 +302,11 @@ public class MouseController implements MouseListener,MouseMotionListener {
 
 		view.setTranslateX(offset_x);
 		view.setTranslateY(offset_y);;
+	}
+
+	public void CreateVertices()
+	{
+		vertices = model.getVertices();
 	}
 
 	public void OverviewOffset(double x,double y)

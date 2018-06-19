@@ -51,9 +51,9 @@ public class Model {
 		elements.add(element);	
 	}
 	public void removeElement(Element element){
-		elements.remove(element);
 		vertices.remove(element);
 		edges.remove(element);
+		elements.remove(element);
 	}
 	public void removeVertex(Vertex vertex){
 		vertices.remove(vertex);
