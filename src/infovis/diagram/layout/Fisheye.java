@@ -43,8 +43,8 @@ public class Fisheye implements Layout{
 			double scale_fish = 2 * Math.min(scale_x,scale_y);
 			vertex.setX(Math.abs(fish_point.getX()));
 			vertex.setY(Math.abs(fish_point.getY()));
-			//vertex.setHeight(scale_fish);
-			//vertex.setWidth(scale_fish);
+			vertex.setHeight(scale_fish);
+			vertex.setWidth(scale_fish);
 			new_vertex.add(vertex);
 		}
 		model.removeVertices(model.getVertices());

@@ -19,8 +19,21 @@
       <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="190">
+              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fisheye.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-115">
+              <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#659#667#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -28,8 +41,12 @@
       <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2822">
-              <caret line="174" selection-start-line="174" selection-end-line="174" />
+            <state relative-caret-position="2737">
+              <caret line="169" column="13" selection-start-line="169" selection-start-column="13" selection-end-line="169" selection-end-column="13" />
+              <folding>
+                <element signature="e#5305#5306#0" expanded="true" />
+                <element signature="e#5325#5326#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,8 +78,8 @@
         <option value="$PROJECT_DIR$/src/infovis/diagram/layout/Layout.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/MouseController.java" />
         <option value="$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java" />
-        <option value="$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java" />
         <option value="$PROJECT_DIR$/src/infovis/scatterplot/View.java" />
+        <option value="$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java" />
       </list>
     </option>
   </component>
@@ -76,9 +93,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,6 +145,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,7 +280,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.305794" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.305794" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -645,10 +662,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2737">
+          <caret line="169" column="13" selection-start-line="169" selection-start-column="13" selection-end-line="169" selection-end-column="13" />
+          <folding>
+            <element signature="e#5305#5306#0" expanded="true" />
+            <element signature="e#5325#5326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/infovis/diagram/layout/Fisheye.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="-115">
+          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#659#667#0" expanded="true" />
@@ -656,17 +684,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/infovis/scatterplot/MouseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="190">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>
